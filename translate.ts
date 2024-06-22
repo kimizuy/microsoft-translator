@@ -16,11 +16,9 @@ interface Result {
 
 export class Translator {
   private apiKey: string;
-  private url: string;
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    this.url = BASE_URL;
   }
 
   async translate({
@@ -29,7 +27,7 @@ export class Translator {
     from,
     textType = "plain",
   }: TranslateOptions): Promise<Result | null> {
-    const url = new URL(this.url);
+    const url = new URL(BASE_URL);
     url.searchParams.set("to", to);
     if (from) {
       url.searchParams.set("from", from);
