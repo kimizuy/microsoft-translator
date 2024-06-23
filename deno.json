@@ -1,8 +1,5 @@
 {
   "name": "@kimizuy/microsoft-translator",
-  "version": "1.0.0",
-  "exports": "./mod.ts",
-  "imports": {
-    "@std/uuid": "jsr:@std/uuid@^0.224.3"
-  }
+  "version": "0.1.0",
+  "exports": "./mod.ts"
 }
