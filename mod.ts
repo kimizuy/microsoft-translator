@@ -8,7 +8,7 @@
  * ```ts
  * import { Translator } from "@kimizuy/microsoft-translator"
  *
- * const translator = new Translator("YOUR_API_KEY", "REGION");
+ * const translator = new Translator("YOUR_API_KEY", "YOUR_REGION");
  * const result = await translator.translate({
  *   texts: "Hello",
  *   to: "ja",
