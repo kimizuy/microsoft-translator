@@ -1,6 +1,6 @@
 // mod.ts
 /**
- * A module providing a function to translate people.
+ * A module providing a function to translate languages.
  *
  * @example
  * ```ts
