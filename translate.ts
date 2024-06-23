@@ -8,17 +8,25 @@ interface TranslateOptions {
   textType?: "plain" | "html";
 }
 
-interface Result {
+type Result = {
   translations: { text: string; to: string }[];
   detectedLanguage?: { language: string; score: number };
+}[];
+
+interface ErrorResponse {
+  error: {
+    code: number;
+    message: string;
+  };
 }
-[];
 
 export class Translator {
   private apiKey: string;
+  private region: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, region: string) {
     this.apiKey = apiKey;
+    this.region = region;
   }
 
   async translate({
@@ -45,16 +53,21 @@ export class Translator {
         method: "POST",
         headers: {
           "Ocp-Apim-Subscription-Key": this.apiKey,
+          "Ocp-Apim-Subscription-Region": this.region,
           "Content-Type": "application/json; charset=UTF-8",
         },
         body,
       });
 
-      const result: Result = await response.json();
+      const result: Result | ErrorResponse = await response.json();
+
+      if ("error" in result) {
+        throw new Error(`${result.error.code}: ${result.error.message}`);
+      }
 
       return result;
     } catch (error) {
-      console.error("Error:", error);
+      console.error(error);
       return null;
     }
   }
