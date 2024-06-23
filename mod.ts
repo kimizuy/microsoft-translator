@@ -1,8 +1,8 @@
 // mod.ts
 /**
- * Client library for [Microsoft Translator Text API]("https://www.microsoft.com/en-us/translator/business/translator-api/").
+ * Client library for [Microsoft Translator Text API]("https://www.microsoft.com/en-us/translator/business/translator-api/"). This library allows you to translate text between multiple languages.
  *
- * This library allows you to translate text between multiple languages. It requires an API key to use the API. You can get the API key from the [Azure portal]("https://azure.microsoft.com/en-ca/get-started/azure-portal").
+ * It requires an API key to use the API. You can get the API key from the [Azure portal]("https://azure.microsoft.com/en-ca/get-started/azure-portal").
  *
  * @example
  * ```ts
