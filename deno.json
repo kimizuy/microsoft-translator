@@ -1,5 +1,8 @@
 {
   "name": "@kimizuy/microsoft-translator",
   "version": "0.1.8",
-  "exports": "./mod.ts"
+  "exports": "./mod.ts",
+  "tasks": {
+    "test": "deno test --allow-read --allow-net"
+  }
 }
