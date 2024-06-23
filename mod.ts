@@ -4,7 +4,7 @@
  *
  * @example
  * ```ts
- * import { translate } from "@kimizuy/microsoft-translator"
+ * import { Translator } from "@kimizuy/microsoft-translator"
  *
  * const translator = new Translator(YOUR_API_KEY, REGION);
  * const result = await translator.translate({
