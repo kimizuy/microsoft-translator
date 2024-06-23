@@ -1,10 +1,4 @@
-/**
- * The base URL of the Azure Translator API.
- *
- * @type {"https://api.cognitive.microsofttranslator.com/translate?api-version=3.0"}
- */
-const BASE_URL =
-  "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
+import { BASE_URL, type SupportedLanguage } from "./constants.ts";
 
 /**
  * The options for the translation.
@@ -21,17 +15,17 @@ export interface TranslateOptions {
    */
   texts: string | string[];
   /**
-   * The language code of the translated text.
+   * The language to translate to.
    *
-   * @type {string}
+   * @type {SupportedLanguage}
    */
-  to: string;
+  to: SupportedLanguage;
   /**
-   * The language code of the text.
+   * The language to translate from.
    *
-   * @type {?string}
+   * @type {?SupportedLanguage}
    */
-  from?: string;
+  from?: SupportedLanguage;
   /**
    * The type of the text.
    *
