@@ -9,11 +9,7 @@
  * import { Translator } from "@kimizuy/microsoft-translator"
  *
  * const translator = new Translator("YOUR_API_KEY", "YOUR_REGION");
- * const result = await translator.translate({
- *   texts: "Hello",
- *   to: "ja",
- *   from: "en",
- * });
+ * const result = await translator.translate("Hello", "ja");
  *
  * console.log(result?.[0].translations[0].text); // こんにちは
  * ```
