@@ -7,11 +7,7 @@ const apiKey = env["API_KEY"];
 
 Deno.test(async function translateToJaFromEn() {
   const translator = new Translator(apiKey, "canadacentral");
-  const result = await translator.translate({
-    texts: "Hello",
-    to: "ja",
-    from: "en",
-  });
+  const result = await translator.translate("Hello", "ja");
 
   assertEquals(result?.[0].translations[0].text, "こんにちは");
 });

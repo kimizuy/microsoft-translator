@@ -4,22 +4,10 @@ import { BASE_URL, type SupportedLanguage } from "./constants.ts";
  * The options for the translation.
  *
  * @export
- * @interface TranslateOptions
- * @typedef {TranslateOptions}
+ * @interface Options
+ * @typedef {Options}
  */
-export interface TranslateOptions {
-  /**
-   * The text to translate.
-   *
-   * @type {(string | string[])}
-   */
-  texts: string | string[];
-  /**
-   * The language to translate to.
-   *
-   * @type {SupportedLanguage}
-   */
-  to: SupportedLanguage;
+export interface Options {
   /**
    * The language to translate from.
    *
@@ -103,28 +91,27 @@ export class Translator {
   }
 
   /**
-   * Translates the given texts.
+   * Translates the given texts to the specified language.
    *
    * @async
-   * @param {TranslateOptions} param0
-   * @param {(string | {})} param0.texts
-   * @param {string} param0.to
-   * @param {string} param0.from
+   * @param {(string | string[])} texts
+   * @param {SupportedLanguage} to
+   * @param {Options} param0
+   * @param {SupportedLanguage} param0.from
    * @param {("plain" | "html")} [param0.textType="plain"]
    * @returns {Promise<Result | null>}
    */
-  async translate({
-    texts,
-    to,
-    from,
-    textType = "plain",
-  }: TranslateOptions): Promise<Result | null> {
+  async translate(
+    texts: string | string[],
+    to: SupportedLanguage,
+    options?: Options
+  ): Promise<Result | null> {
     const url = new URL(BASE_URL);
     url.searchParams.set("to", to);
-    if (from) {
-      url.searchParams.set("from", from);
+    if (options?.from) {
+      url.searchParams.set("from", options.from);
     }
-    url.searchParams.set("textType", textType);
+    url.searchParams.set("textType", options?.textType || "plain");
 
     const body = JSON.stringify(
       typeof texts === "string"
