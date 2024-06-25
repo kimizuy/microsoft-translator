@@ -1,12 +1,9 @@
 /**
- * The base URL of the Azure Translator API.
+ * The list of supported languages
  *
- * @type {"https://api.cognitive.microsofttranslator.com/translate?api-version=3.0"}
+ * @type {readonly ["af", "sq", "am", "ar", "hy", "as", "az", "bn", "ba", "eu", "bho", "bs", "bg", "yue", "ca", "lzh", "zh-Hans", "zh-Hant", "sn", "hr", "cs", "da", "prs", "dv", "doi", ... 106 more ..., "zu"]}
  */
-export const BASE_URL =
-  "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
-
-const SUPPORTED_LANGUAGES = [
+export const SUPPORTED_LANGUAGES = [
   "af",
   "sq",
   "am",
@@ -140,13 +137,3 @@ const SUPPORTED_LANGUAGES = [
   "yua",
   "zu",
 ] as const;
-
-/**
- * The supported languages for translation.
- *
- * https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support
- *
- * @export
- * @typedef {SupportedLanguage}
- */
-export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
