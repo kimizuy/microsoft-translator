@@ -3,8 +3,6 @@ import type { SUPPORTED_LANGUAGES } from "./constants.ts";
 /**
  * The supported languages for translation.
  *
- * https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support
- *
  * @export
  * @typedef {SupportedLanguage}
  */

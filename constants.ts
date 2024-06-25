@@ -1,7 +1,8 @@
 /**
  * The list of supported languages
  *
- * @type {readonly ["af", "sq", "am", "ar", "hy", "as", "az", "bn", "ba", "eu", "bho", "bs", "bg", "yue", "ca", "lzh", "zh-Hans", "zh-Hant", "sn", "hr", "cs", "da", "prs", "dv", "doi", ... 106 more ..., "zu"]}
+ * https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support
+ *
  */
 export const SUPPORTED_LANGUAGES = [
   "af",
