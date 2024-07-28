@@ -253,9 +253,7 @@ export class Translator {
     url.searchParams.set("textType", options?.textType || "plain");
 
     const body = JSON.stringify(
-      typeof texts === "string"
-        ? [{ text: texts }]
-        : texts.map((text) => ({ text }))
+      Array.isArray(texts) ? texts.map((text) => ({ text })) : [{ text: texts }]
     );
 
     try {
@@ -271,7 +269,8 @@ export class Translator {
 
       const result: Success | Failure = await response.json();
 
-      if ("error" in result) {
+      const isFailure = "error" in result;
+      if (isFailure) {
         throw new Error(`${result.error.code}: ${result.error.message}`);
       }
 
